@@ -197,5 +197,56 @@ describe('Maestro', function() {
 
 });
 
+describe('China UnionPay', function() {
+  var expect = chai.expect;
+
+  var arr = range(622126, 622925).concat(range(624, 626), range(6282, 6288))
+
+  for (var i = 0; i < arr.length; i++) {
+  var prefix = arr[i];
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 16 - prefix.length))).to.equal('China UnionPay')
+      });
+      it('has a prefix of ' + prefix + ' and a length of 17', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 17 - prefix.length))).to.equal('China UnionPay')
+      });  
+      it('has a prefix of ' + prefix + ' and a length of 18', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 18 - prefix.length))).to.equal('China UnionPay')
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 19 - prefix.length))).to.equal('China UnionPay')
+      });
+    })(prefix) 
+  }
+
+});
+
+//if (cardTest(cardNumber, [16, 18, 19], ['4903', '4905', '4911', '4936', '564182', '633110', '6333', '6759'])) {
+
+describe('Switch', function() {
+  var expect = chai.expect;
+
+  var arr = ['4903', '4905', '4911', '4936', '564182', '633110', '6333', '6759']
+
+  for (var i = 0; i < arr.length; i++) {
+  var prefix = arr[i];
+    (function(prefix) {
+      it('has a prefix of ' + prefix + ' and a length of 16', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 16 - prefix.length))).to.equal('Switch')
+      }); 
+      it('has a prefix of ' + prefix + ' and a length of 18', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 18 - prefix.length))).to.equal('Switch')
+      });
+      it('has a prefix of ' + prefix + ' and a length of 19', function () {
+        expect(detectNetwork(prefix + '123456743545891234'.slice(0, 19 - prefix.length))).to.equal('Switch')
+      });
+    })(prefix) 
+  }
+
+});
+
+/*
 describe('should support China UnionPay')
 describe('should support Switch')
+*/
