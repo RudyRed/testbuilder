@@ -222,7 +222,6 @@ describe('China UnionPay', function() {
 
 });
 
-//if (cardTest(cardNumber, [16, 18, 19], ['4903', '4905', '4911', '4936', '564182', '633110', '6333', '6759'])) {
 
 describe('Switch', function() {
   var expect = chai.expect;
@@ -245,8 +244,3 @@ describe('Switch', function() {
   }
 
 });
-
-/*
-describe('should support China UnionPay')
-describe('should support Switch')
-*/
